@@ -29,11 +29,11 @@ export class ContentList {
         }
         result += "<p class='content-author'>" + content.author + "</p>";
         if (content.imgSrc != null) {
-        result += "<img class='content-imgsrc' src='" + content.imgSrc + "'/>";
+            result += "<img class='content-imgsrc' src='" + content.imgSrc + "'/>";
         }
         result += "<p class='content-type'>" + content.type + "</p>";
         if (content.tags != null) {
-        result += "<p class='content-tags'>" + content.tags + "</p>";
+            result += "<p class='content-tags'>" + content.tags + "</p>";
         }
         return result;
     }
