@@ -3,8 +3,8 @@ import { IContent } from "./icontent";
 export class ContentList {
     private _contents: IContent[];
 
-    public constructor(contents: IContent[]) {
-        this._contents = contents;
+    public constructor() {
+        this._contents = [];
     }
 
     public getContents(): IContent[] {
