@@ -23,12 +23,18 @@ export class ContentList {
         let content = this._contents[index];
         let result = "";
         result += "<p class='content-id'>" + content.id + "</p>";
-        result += "<p class='content-name'>" + content.name + "</p>";
-        result += "<p class='content-desc'>" + content.description + "</p>";
+        result += "<p class='content-name'>" + content.name + "</p>";        
+        if (content.description != null) {
+            result += "<p class='content-desc'>" + content.description + "</p>";
+        }
         result += "<p class='content-author'>" + content.author + "</p>";
+        if (content.imgSrc != null) {
         result += "<img class='content-imgsrc' src='" + content.imgSrc + "'/>";
+        }
         result += "<p class='content-type'>" + content.type + "</p>";
+        if (content.tags != null) {
         result += "<p class='content-tags'>" + content.tags + "</p>";
+        }
         return result;
     }
 }
