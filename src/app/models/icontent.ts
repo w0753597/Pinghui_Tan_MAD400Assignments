@@ -5,5 +5,5 @@ export interface IContent {
     author: string,
     imgSrc?: string,
     type: string,
-    tags?: SVGStringList[]
+    tags?: string[]
 }
