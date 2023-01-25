@@ -1,1 +1,15 @@
-<p>content-list-item works!</p>
+<h2>{{content?.name}}</h2>
+<div class="media">
+    <div class="img">
+        <img src="assets/imgs/{{content?.imgSrc}}" width="200px" />
+    </div>
+    <div class="content">
+        <p>{{content?.description}}</p>
+        <p>
+            <span class="field">Id</span>{{content?.id}}<br/>
+            <span class="field">Type</span>{{content?.type}}<br/>
+            <span class="field">Tags</span><span class="tag" *ngFor="let tag of content?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</span><br/>
+            <span class="field">Author</span>{{content?.author}}
+        </p>
+    </div>
+</div>
