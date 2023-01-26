@@ -1,7 +1,7 @@
 <h2>{{content?.name}}</h2>
 <div class="media">
     <div class="img" *ngIf="content?.imgSrc">
-        <img src="assets/imgs/{{content?.imgSrc}}" width="200px" />
+        <img (click)="onClickImg()" src="assets/imgs/{{content?.imgSrc}}" width="200px" />
     </div>
     <div class="content">
         <p *ngIf="content?.description">{{content?.description}}</p>

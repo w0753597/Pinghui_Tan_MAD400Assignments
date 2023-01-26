@@ -8,4 +8,9 @@ import { IContent } from '../models/icontent';
 })
 export class ContentListItemComponent {
   @Input() content?: IContent;
+
+  onClickImg() {
+    console.log("id: " + this.content?.id);
+    console.log("description: " + this.content?.description);
+  }
 }
