@@ -1,5 +1,6 @@
 import { Component, ɵisListLikeIterable } from '@angular/core';
 import { IContent } from '../models/icontent';
+import { DronePartService } from '../services/drone-part.service';
 
 @Component({
   selector: 'app-content-list',
@@ -7,5 +8,13 @@ import { IContent } from '../models/icontent';
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent {
+  contentList: IContent[] = [];
 
+  constructor(private dronePartService: DronePartService) { }
+
+  ngOnInit() {
+    this.dronePartService.getDroneParts().subscribe(
+      content => this.contentList = content
+    );
+  }
 }
