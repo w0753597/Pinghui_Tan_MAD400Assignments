@@ -14,6 +14,11 @@
     background-color: red;
 }
 
+:host.boxshadow {
+    box-shadow: 12px 5px 6px rgb(76, 0, 255);
+    background-color: green;
+}
+
 .media {
     display: grid;
     grid-template-columns: fit-content(200px) 1fr;
@@ -53,3 +58,4 @@ h2 {
     width: 80px;
     font-weight: bold;
 }
+
