@@ -18,4 +18,9 @@ export class AppComponent {
     this.dronePartService.getDronePart(2).subscribe(p => this.part = p);
   }
 
+  showPart(id: string) {
+    let value = (document.getElementById(id) as HTMLInputElement).value
+    this.dronePartService.getDronePart(+value).subscribe(p => this.part = p);
+  }
+
 }
