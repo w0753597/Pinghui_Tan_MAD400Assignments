@@ -1,5 +1,5 @@
 export interface IContent {
-    id: number,
+    id: number,     // valid id is a positive integer
     name: string,
     description?: string,
     author: string,

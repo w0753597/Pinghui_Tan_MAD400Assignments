@@ -8,7 +8,7 @@ import { IContent } from '../models/icontent';
   providedIn: 'root'
 })
 export class DronePartService {
-  private INVALID_PART: IContent = {id: -1, name: "", author: "", type: ""};
+  private INVALID_PART: IContent = { id: -1, name: "", author: "", type: "" };
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class DronePartService {
    * 
    * @returns an observable of all parts
    */
-  getDroneParts() : Observable<IContent[]> {
+  getDroneParts(): Observable<IContent[]> {
     return of(CONTENT_LIST);
   }
 
@@ -27,7 +27,7 @@ export class DronePartService {
    * @param id part id
    * @returns observable of the part, or the INVALID_PART
    */
-  getDronePart(id: number) : Observable<IContent> {
+  getDronePart(id: number): Observable<IContent> {
     let idx = this.getFirstIdx(id);
     return of(idx != -1 ? CONTENT_LIST[idx] : this.INVALID_PART);
   }
@@ -41,10 +41,12 @@ export class DronePartService {
    * @param part the part to add
    * @returns observable of the part list after adding
    */
-  addDronePart(part: IContent) : Observable<IContent[]> {
-    let idx = this.getFirstIdx(part.id);
-    if (idx == -1) {
-      CONTENT_LIST.push(part);
+  addDronePart(part: IContent): Observable<IContent[]> {
+    if (part.id > 0) {
+      let idx = this.getFirstIdx(part.id);
+      if (idx == -1) {
+        CONTENT_LIST.push(part);
+      }
     }
     return of(CONTENT_LIST);
   }
@@ -59,10 +61,12 @@ export class DronePartService {
    * @param part the part to update
    * @returns observable of the part list after updating
    */
-  updateDronePart(part: IContent) : Observable<IContent[]> {
-    let idx = this.getFirstIdx(part.id);
-    if (idx != -1) {
-      CONTENT_LIST[idx] = part; // maybe unsafe, but the easiest.
+  updateDronePart(part: IContent): Observable<IContent[]> {
+    if (part.id > 0) {
+      let idx = this.getFirstIdx(part.id);
+      if (idx != -1) {
+        CONTENT_LIST[idx] = part; // maybe unsafe, but the easiest.
+      }
     }
     return of(CONTENT_LIST);
   }
@@ -84,7 +88,7 @@ export class DronePartService {
     return of(this.INVALID_PART);
   }
 
-  
+
   private getFirstIdx(id: number): number {
     for (let i = 0; i < CONTENT_LIST.length; i++) {
       if (CONTENT_LIST[i].id == id)
@@ -92,4 +96,5 @@ export class DronePartService {
     }
     return -1;
   }
+
 }
