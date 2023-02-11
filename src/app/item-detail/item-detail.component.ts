@@ -22,11 +22,11 @@ export class ItemDetailComponent implements OnInit {
       id = +(params.get('id') ?? -1);
 
       this.dronePartService.getDronePart(id).subscribe((dronePart: IContent) => {
-        if (dronePart) {
+        if (dronePart.id > 0) {
           this.dronePart = dronePart;
         }
         else {
-//          this.router.navigate(["/contentNotFoundHere"]);
+          this.router.navigate(["/PageNotFound"]);
         }
       });
 

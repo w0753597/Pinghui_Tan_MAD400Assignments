@@ -3,6 +3,6 @@
     <button type="button" (click)="showPart('part_id_input')">submit</button>
 </div>
 
-<app-content-list-item *ngIf="part?.id != -1; else errorId" class="boxshadow" [content]="part"></app-content-list-item>
+<app-content-list-item *ngIf="part?.id == -1; else errorId" class="boxshadow" [content]="part"></app-content-list-item>
 
 <ng-template #errorId><h3>Error: No part with this id</h3></ng-template>
