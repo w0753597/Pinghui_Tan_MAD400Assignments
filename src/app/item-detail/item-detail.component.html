@@ -6,10 +6,11 @@
     <div class="content">
         <p *ngIf="dronePart?.description">{{dronePart?.description}}</p>
         <p>
-            <span class="field">Id</span>{{dronePart?.id}}<br/>
+            <!--<span class="field">Id</span>{{dronePart?.id}}<br/>-->
             <span class="field">Type</span>{{dronePart?.type}}<br/>
             <span class="field" *ngIf="dronePart?.tags">Tags</span><span class="tag" *ngFor="let tag of dronePart?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</span><br *ngIf="dronePart?.tags"/>
             <span class="field">Author</span>{{dronePart?.author}}
         </p>
     </div>
 </div>
+<a routerLink="/content">Go back to part list</a>

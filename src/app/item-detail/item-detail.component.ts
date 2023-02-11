@@ -19,7 +19,7 @@ export class ItemDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       let id: number = 0;
-      id = +(params.get('id') ?? 1024);
+      id = +(params.get('id') ?? -1);
 
       this.dronePartService.getDronePart(id).subscribe((dronePart: IContent) => {
         if (dronePart) {
