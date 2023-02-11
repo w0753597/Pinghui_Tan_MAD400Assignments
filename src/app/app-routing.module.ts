@@ -4,6 +4,7 @@ import { RouterModule, Routes} from '@angular/router';
 import { ContentListComponent } from './content-list/content-list.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { SearchComponent } from './search/search.component';
+import { UrlErrorComponent } from './url-error/url-error.component';
 
 const routes: Routes = [
   {
@@ -20,8 +21,12 @@ const routes: Routes = [
     component: ItemDetailComponent,
   },
   {
-    path: 'search',
+    path: "search",
     component: SearchComponent,
+  },
+  {
+    path: "**",
+    component: UrlErrorComponent,
   }
 ];
 
