@@ -8,6 +8,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchComponent } from './search/search.component';
 import { UrlErrorComponent } from './url-error/url-error.component';
+import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UrlErrorComponent } from './url-error/url-error.component';
     ContentListItemComponent,
     ItemDetailComponent,
     SearchComponent,
-    UrlErrorComponent
+    UrlErrorComponent,
+    TopNavBarComponent
   ],
   imports: [
     BrowserModule,
