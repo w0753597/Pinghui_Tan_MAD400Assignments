@@ -9,6 +9,7 @@ import { DronePartService } from '../services/drone-part.service';
 })
 export class ModifyContentComponent {
   added = false;
+  updated = false;
   tags = ""
   newPart: IContent = {
     name: "",
@@ -36,5 +37,9 @@ export class ModifyContentComponent {
         };
         this.tags = "";
       });
+  }
+
+  updatePartInServer(): void {
+    
   }
 }

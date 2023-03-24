@@ -1,4 +1,10 @@
-<h2>Add a drone part</h2>
+<ng-container *ngIf="newPart.id; else addPartHeader">
+    <h2>Update drone part</h2>
+</ng-container>
+<ng-template #addPartHeader>
+    <h2>Add a drone part</h2>
+</ng-template>
+
 <ng-container *ngIf="newPart.id">
     <label>ID: <input [(ngModel)]="newPart.id" disabled></label><br>
 </ng-container>
@@ -7,5 +13,13 @@
 <label>Image URL: <input [(ngModel)]="newPart.imgSrc"></label><br>
 <label>Type: <input [(ngModel)]="newPart.type"></label><br>
 <label>Tags: <input [(ngModel)]="tags"></label><br>
-<button (click)="addPartToServer()" [disabled]="newPart.id != undefined">Add Part</button><br>
+
+<ng-container *ngIf="newPart.id; else addPartButton">
+    <button (click)="updatePartInServer()">Update Part</button>
+</ng-container>
+<ng-template #addPartButton>
+    <button (click)="addPartToServer()">Add Part</button><br>
+</ng-template>
+
 <div *ngIf="added">Part was added successfully!</div>
+<div *ngIf="updated">Part was updated successfully!</div>
