@@ -5,6 +5,7 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { SearchComponent } from './search/search.component';
 import { UrlErrorComponent } from './url-error/url-error.component';
+import { ModifyContentComponent } from './modify-content/modify-content.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "search",
     component: SearchComponent,
+  },
+  {
+    path: "addContent",
+    component: ModifyContentComponent,
   },
   {
     path: "**",
