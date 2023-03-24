@@ -42,7 +42,7 @@ export class DronePartService {
    * @returns observable of the part list after adding
    */
   addDronePart(part: IContent): Observable<IContent[]> {
-    if (part.id > 0) {
+    if (part.id && part.id > 0) {
       let idx = this.getFirstIdx(part.id);
       if (idx == -1) {
         CONTENT_LIST.push(part);
@@ -62,7 +62,7 @@ export class DronePartService {
    * @returns observable of the part list after updating
    */
   updateDronePart(part: IContent): Observable<IContent[]> {
-    if (part.id > 0) {
+    if (part.id && part.id > 0) {
       let idx = this.getFirstIdx(part.id);
       if (idx != -1) {
         CONTENT_LIST[idx] = part; // maybe unsafe, but the easiest.

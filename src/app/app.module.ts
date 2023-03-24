@@ -9,6 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { SearchComponent } from './search/search.component';
 import { UrlErrorComponent } from './url-error/url-error.component';
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,11 @@ import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      delay: 2000,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

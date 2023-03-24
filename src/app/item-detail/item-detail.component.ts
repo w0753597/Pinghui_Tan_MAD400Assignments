@@ -22,7 +22,7 @@ export class ItemDetailComponent implements OnInit {
       id = +(params.get('id') ?? -1);
 
       this.dronePartService.getDronePart(id).subscribe((dronePart: IContent) => {
-        if (dronePart.id > 0) {
+        if (dronePart.id && dronePart.id > 0) {
           this.dronePart = dronePart;
         }
         else {
