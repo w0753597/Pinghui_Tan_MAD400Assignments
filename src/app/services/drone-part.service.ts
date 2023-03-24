@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import { isNgContent } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -44,15 +44,20 @@ export class DronePartService {
    * @param part the part to add
    * @returns observable of the part list after adding
    */
-  // addDronePart(part: IContent): Observable<IContent[]> {
-  //   if (part.id && part.id > 0) {
-  //     let idx = this.getFirstIdx(part.id);
-  //     if (idx == -1) {
-  //       CONTENT_LIST.push(part);
-  //     }
-  //   }
-  //   return of(CONTENT_LIST);
-  // }
+  addDronePart(part: IContent): Observable<IContent> {
+    // if (part.id && part.id > 0) {
+    //   let idx = this.getFirstIdx(part.id);
+    //   if (idx == -1) {
+    //     CONTENT_LIST.push(part);
+    //   }
+    // }
+    // return of(CONTENT_LIST);
+    return this.http.post<IContent>(
+      "api/parts", 
+      part,
+      { headers: new HttpHeaders({'Content-type': 'application/json'}) }
+    );
+  }
 
 
   /**

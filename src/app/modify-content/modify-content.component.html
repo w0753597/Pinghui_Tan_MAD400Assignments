@@ -3,6 +3,6 @@
 <label>Description: <input [(ngModel)]="newPart.description"></label><br>
 <label>Image URL: <input [(ngModel)]="newPart.imgSrc"></label><br>
 <label>Type: <input [(ngModel)]="newPart.type"></label><br>
-<label>Tags: <input [(ngModel)]="newPart.tags"></label><br>
+<label>Tags: <input [(ngModel)]="tags"></label><br>
 <button (click)="addPartToServer()" [disabled]="newPart.id != undefined">Add Part</button><br>
-<div *ngIf="newPart.id != undefined">Part was added successfully! ID: {{ newPart.id }}</div>
+<div *ngIf="added">Part was added successfully!</div>
