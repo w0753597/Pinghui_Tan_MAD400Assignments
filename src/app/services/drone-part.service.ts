@@ -69,15 +69,20 @@ export class DronePartService {
    * @param part the part to update
    * @returns observable of the part list after updating
    */
-  // updateDronePart(part: IContent): Observable<IContent[]> {
-  //   if (part.id && part.id > 0) {
-  //     let idx = this.getFirstIdx(part.id);
-  //     if (idx != -1) {
-  //       CONTENT_LIST[idx] = part; // maybe unsafe, but the easiest.
-  //     }
-  //   }
-  //   return of(CONTENT_LIST);
-  // }
+  updateDronePart(part: IContent): Observable<IContent> {
+    // if (part.id && part.id > 0) {
+    //   let idx = this.getFirstIdx(part.id);
+    //   if (idx != -1) {
+    //     CONTENT_LIST[idx] = part; // maybe unsafe, but the easiest.
+    //   }
+    // }
+    // return of(CONTENT_LIST);
+    return this.http.put<IContent>(
+      "api/parts/" + part.id, 
+      part,
+      { headers: new HttpHeaders({'Content-type': 'application/json'}) }
+    );
+  }
 
 
   /**
