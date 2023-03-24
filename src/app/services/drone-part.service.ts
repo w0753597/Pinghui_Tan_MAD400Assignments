@@ -1,7 +1,8 @@
-import { isNgContent } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http';
+//import { isNgContent } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { CONTENT_LIST } from '../data/mock-content';
+//import { CONTENT_LIST } from '../data/mock-content';
 import { IContent } from '../models/icontent';
 
 @Injectable({
@@ -10,7 +11,7 @@ import { IContent } from '../models/icontent';
 export class DronePartService {
   private INVALID_PART: IContent = { id: -1, name: "", author: "", type: "" };
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   /**
    * Get all parts
@@ -18,7 +19,8 @@ export class DronePartService {
    * @returns an observable of all parts
    */
   getDroneParts(): Observable<IContent[]> {
-    return of(CONTENT_LIST);
+    // return of(CONTENT_LIST);
+    return this.http.get<IContent[]>("api/parts")
   }
 
   /**
@@ -28,8 +30,9 @@ export class DronePartService {
    * @returns observable of the part, or the INVALID_PART
    */
   getDronePart(id: number): Observable<IContent> {
-    let idx = this.getFirstIdx(id);
-    return of(idx != -1 ? CONTENT_LIST[idx] : this.INVALID_PART);
+    //let idx = this.getFirstIdx(id);
+    //return of(idx != -1 ? CONTENT_LIST[idx] : this.INVALID_PART);
+    return this.http.get<IContent>("api/parts/" + id);
   }
 
   /**
@@ -41,15 +44,15 @@ export class DronePartService {
    * @param part the part to add
    * @returns observable of the part list after adding
    */
-  addDronePart(part: IContent): Observable<IContent[]> {
-    if (part.id && part.id > 0) {
-      let idx = this.getFirstIdx(part.id);
-      if (idx == -1) {
-        CONTENT_LIST.push(part);
-      }
-    }
-    return of(CONTENT_LIST);
-  }
+  // addDronePart(part: IContent): Observable<IContent[]> {
+  //   if (part.id && part.id > 0) {
+  //     let idx = this.getFirstIdx(part.id);
+  //     if (idx == -1) {
+  //       CONTENT_LIST.push(part);
+  //     }
+  //   }
+  //   return of(CONTENT_LIST);
+  // }
 
 
   /**
@@ -61,15 +64,15 @@ export class DronePartService {
    * @param part the part to update
    * @returns observable of the part list after updating
    */
-  updateDronePart(part: IContent): Observable<IContent[]> {
-    if (part.id && part.id > 0) {
-      let idx = this.getFirstIdx(part.id);
-      if (idx != -1) {
-        CONTENT_LIST[idx] = part; // maybe unsafe, but the easiest.
-      }
-    }
-    return of(CONTENT_LIST);
-  }
+  // updateDronePart(part: IContent): Observable<IContent[]> {
+  //   if (part.id && part.id > 0) {
+  //     let idx = this.getFirstIdx(part.id);
+  //     if (idx != -1) {
+  //       CONTENT_LIST[idx] = part; // maybe unsafe, but the easiest.
+  //     }
+  //   }
+  //   return of(CONTENT_LIST);
+  // }
 
 
   /**
@@ -80,21 +83,21 @@ export class DronePartService {
    * @param id part id
    * @returns observable of the deleted part, or the INVALID_PART
    */
-  deleteDronePart(id: number): Observable<IContent> {
-    let idx = this.getFirstIdx(id);
-    if (idx != -1) {
-      return of(CONTENT_LIST.splice(idx, 1)[0])
-    }
-    return of(this.INVALID_PART);
-  }
+  // deleteDronePart(id: number): Observable<IContent> {
+  //   let idx = this.getFirstIdx(id);
+  //   if (idx != -1) {
+  //     return of(CONTENT_LIST.splice(idx, 1)[0])
+  //   }
+  //   return of(this.INVALID_PART);
+  // }
 
 
-  private getFirstIdx(id: number): number {
-    for (let i = 0; i < CONTENT_LIST.length; i++) {
-      if (CONTENT_LIST[i].id == id)
-        return i;
-    }
-    return -1;
-  }
+  // private getFirstIdx(id: number): number {
+  //   for (let i = 0; i < CONTENT_LIST.length; i++) {
+  //     if (CONTENT_LIST[i].id == id)
+  //       return i;
+  //   }
+  //   return -1;
+  // }
 
 }
