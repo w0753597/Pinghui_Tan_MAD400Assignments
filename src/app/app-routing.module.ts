@@ -30,6 +30,10 @@ const routes: Routes = [
     component: ModifyContentComponent,
   },
   {
+    path: "editContent/:id",
+    component: ModifyContentComponent,
+  },
+  {
     path: "**",
     component: UrlErrorComponent,
   }

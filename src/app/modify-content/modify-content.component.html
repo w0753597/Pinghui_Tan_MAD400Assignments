@@ -1,4 +1,7 @@
 <h2>Add a drone part</h2>
+<ng-container *ngIf="newPart.id">
+    <label>ID: <input [(ngModel)]="newPart.id" disabled></label><br>
+</ng-container>
 <label>Name: <input [(ngModel)]="newPart.name"></label><br>
 <label>Description: <input [(ngModel)]="newPart.description"></label><br>
 <label>Image URL: <input [(ngModel)]="newPart.imgSrc"></label><br>
