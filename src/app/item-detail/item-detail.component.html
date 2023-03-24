@@ -13,5 +13,6 @@
         </p>
     </div>
 </div>
+<a routerLink="/editContent/{{dronePart?.id}}">Edit Part</a><br>
 <a routerLink="/content">Go back to part list</a><br>
 <a *ngIf="dronePart?.id != 1" routerLink="/content/{{(dronePart?.id ?? 1) - 1}}">Previous part</a>
