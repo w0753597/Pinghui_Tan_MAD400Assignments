@@ -1,4 +1,4 @@
-import { Component, ɵisListLikeIterable } from '@angular/core';
+import { Component } from '@angular/core';
 import { IContent } from '../models/icontent';
 
 @Component({
