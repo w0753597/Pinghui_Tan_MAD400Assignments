@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 //import { isNgContent } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 //import { CONTENT_LIST } from '../data/mock-content';
 import { IContent } from '../models/icontent';
 
@@ -32,7 +32,8 @@ export class DronePartService {
   getDronePart(id: number): Observable<IContent> {
     //let idx = this.getFirstIdx(id);
     //return of(idx != -1 ? CONTENT_LIST[idx] : this.INVALID_PART);
-    return this.http.get<IContent>("api/parts/" + id);
+    return this.http.get<IContent>("api/parts/" + id)
+        .pipe(catchError(this.handleError<IContent>(`getDronePart id=${id}`)));
   }
 
   /**
@@ -110,4 +111,11 @@ export class DronePartService {
   //   return -1;
   // }
 
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {  
+      console.log(`DronePartService: ${operation} failed: ${error.message}`);
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 }

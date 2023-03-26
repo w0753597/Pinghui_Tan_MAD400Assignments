@@ -21,23 +21,26 @@ export class ModifyContentComponent implements OnInit {
   };
 
   constructor(private router: Router,
-              private service: DronePartService,
-              private route: ActivatedRoute) {}
+    private service: DronePartService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       let id: number = 0;
       id = +(params.get('id') ?? -1);
 
-      this.service.getDronePart(id).subscribe((dronePart: IContent) => {
-        if (dronePart.id && dronePart.id > 0) {
-          this.newPart = dronePart;
-          this.tags = this.newPart.tags?.join(", ") ?? "";
-        }
-        else {
-          this.router.navigate(["/PageNotFound"]);
-        }
-      });
+      if (id != -1) {
+        this.service.getDronePart(id).subscribe((dronePart: IContent) => {
+          if (dronePart && dronePart.id && dronePart.id > 0) {
+            this.newPart = dronePart;
+            this.tags = this.newPart.tags?.join(", ") ?? "";
+          }
+          else {
+            console.log(`ngOnInit: No part with id = ${id}`);
+            this.router.navigate(["/addContent"]);
+          }
+        });
+      }
 
     });
 
@@ -47,7 +50,7 @@ export class ModifyContentComponent implements OnInit {
     this.newPart.tags = this.tags.split(/,\s*/);
     this.added = false;
     this.service.addDronePart(this.newPart)
-      .subscribe( notused => { 
+      .subscribe(notused => {
         this.added = true;
         this.newPart = {
           name: "",
@@ -64,6 +67,6 @@ export class ModifyContentComponent implements OnInit {
     this.newPart.tags = this.tags.split(/,\s*/);
     this.updated = false;
     this.service.updateDronePart(this.newPart)
-      .subscribe( notused => { this.updated = true; });
+      .subscribe(notused => { this.updated = true; });
   }
 }
