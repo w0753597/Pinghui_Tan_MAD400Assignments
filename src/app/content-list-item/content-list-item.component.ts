@@ -18,7 +18,7 @@ export class ContentListItemComponent {
     let n = this.hashCodeColor("random" + this.content?.type);
     let style = "background-color: #" + n.toString(16)
                  + "; color: #" + this.inverseBW(n).toString(16) + ";";
-    console.log("colorstyle = " + style);
+    //console.log("colorstyle = " + style);
     return style;
   }
 

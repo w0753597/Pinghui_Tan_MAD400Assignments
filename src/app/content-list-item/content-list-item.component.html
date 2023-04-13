@@ -1,5 +1,5 @@
 <a routerLink="/content/{{content?.id}}">
-    <h2 appInteractiveHightlight from="name">{{content?.name}}</h2>
+    <h2 appInteractiveHightlight from="name" colour="cyan">{{content?.name}}</h2>
 </a>
 <div class="media">
     <div class="img" *ngIf="content?.imgSrc">
@@ -9,7 +9,7 @@
         <!--<p *ngIf="content?.description">{{content?.description}}</p>-->
         <p>
             <span class="field">Id</span>
-            <span appInteractiveHighligh from="id" class="sub">
+            <span appInteractiveHightlight from="id" colour="cyan" class="sub">
                 {{content?.id}}
             </span>
             <br/>
