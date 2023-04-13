@@ -14,6 +14,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
 import { FormsModule } from '@angular/forms';
+import { FilterContentPipe } from './pipes/filter-content.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     UrlErrorComponent,
     TopNavBarComponent,
-    ModifyContentComponent
+    ModifyContentComponent,
+    FilterContentPipe
   ],
   imports: [
     BrowserModule,
