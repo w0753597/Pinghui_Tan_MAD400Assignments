@@ -1,9 +1,9 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appInteractiveHightlight]'
+  selector: '[appInteractiveHighlight]'
 })
-export class InteractiveHightlightDirective {
+export class InteractiveHighlightDirective {
 
   private savedBorder: string;
   private savedColor: string;
