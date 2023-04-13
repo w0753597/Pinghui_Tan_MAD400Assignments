@@ -6,9 +6,21 @@
     <div class="content">
         <!--<p *ngIf="content?.description">{{content?.description}}</p>-->
         <p>
-            <span class="field">Id</span><span class="sub">{{content?.id}}</span><br/>
-            <span class="field" [style]="colorstyle()">Type</span><span class="sub" [style]="colorstyle()">| {{content?.type}} |</span><br/>
-            <span class="field" *ngIf="content?.tags">Tags</span><span class="sub"><mark class="tag" *ngFor="let tag of content?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</mark></span><br *ngIf="content?.tags"/>
+            <span class="field">Id</span>
+            <span appInteractiveHighligh class="sub">
+                {{content?.id}}
+            </span>
+            <br/>
+            <span class="field" [style]="colorstyle()">Type</span>
+            <span appInteractiveHightlight class="sub" [style]="colorstyle()">
+                | {{content?.type}} |
+            </span><br/>
+            <span class="field" *ngIf="content?.tags">Tags</span><span class="sub">
+                <mark class="tag" appInteractiveHightlight 
+                *ngFor="let tag of content?.tags">
+                    {{tag}}&nbsp;&nbsp;&nbsp;&nbsp;
+                </mark>
+            </span><br *ngIf="content?.tags"/>
             <!--<span class="field">Author</span>{{content?.author}}-->
         </p>
     </div>

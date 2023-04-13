@@ -15,6 +15,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
 import { FormsModule } from '@angular/forms';
 import { FilterContentPipe } from './pipes/filter-content.pipe';
+import { InteractiveHightlightDirective } from './directives/interactive-hightlight.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FilterContentPipe } from './pipes/filter-content.pipe';
     UrlErrorComponent,
     TopNavBarComponent,
     ModifyContentComponent,
-    FilterContentPipe
+    FilterContentPipe,
+    InteractiveHightlightDirective
   ],
   imports: [
     BrowserModule,
