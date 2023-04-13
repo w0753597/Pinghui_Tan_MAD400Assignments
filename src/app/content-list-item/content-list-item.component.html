@@ -1,4 +1,6 @@
-<a routerLink="/content/{{content?.id}}"><h2>{{content?.name}}</h2></a>
+<a routerLink="/content/{{content?.id}}">
+    <h2 appInteractiveHightlight from="name">{{content?.name}}</h2>
+</a>
 <div class="media">
     <div class="img" *ngIf="content?.imgSrc">
         <img (click)="onClickImg()" src="assets/imgs/{{content?.imgSrc}}" width="200px" />
@@ -7,16 +9,16 @@
         <!--<p *ngIf="content?.description">{{content?.description}}</p>-->
         <p>
             <span class="field">Id</span>
-            <span appInteractiveHighligh class="sub">
+            <span appInteractiveHighligh from="id" class="sub">
                 {{content?.id}}
             </span>
             <br/>
             <span class="field" [style]="colorstyle()">Type</span>
-            <span appInteractiveHightlight class="sub" [style]="colorstyle()">
+            <span appInteractiveHightlight from="type" class="sub" [style]="colorstyle()">
                 | {{content?.type}} |
             </span><br/>
             <span class="field" *ngIf="content?.tags">Tags</span><span class="sub">
-                <mark class="tag" appInteractiveHightlight 
+                <mark class="tag" appInteractiveHightlight from="tag"
                 *ngFor="let tag of content?.tags">
                     {{tag}}&nbsp;&nbsp;&nbsp;&nbsp;
                 </mark>
