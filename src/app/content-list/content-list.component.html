@@ -1,1 +1,8 @@
-<app-content-list-item *ngFor="let item of contentList; even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of (contentList | filterContent); even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of (contentList | filterContent: 'frame'); even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of (contentList | filterContent: 'FC/ESC'); even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of (contentList | filterContent: 'motor'); even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of (contentList | filterContent: 'camera'); even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of (contentList | filterContent: 'VTx'); even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of (contentList | filterContent: 'prop'); even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of (contentList | filterContent: 'receiver'); even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
