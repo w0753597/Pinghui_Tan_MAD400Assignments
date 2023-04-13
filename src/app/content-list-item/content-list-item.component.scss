@@ -3,17 +3,20 @@
     display: block;
     width: 700px;
     margin: 30px 20px;
-    padding: 0 20px
-}
-
-:host.even {
+    padding: 0 20px;
     background-color: yellow;
 }
 
+/*
+:host.even {
+    background-color: yellow;
+}
+*/
+/*
 :host.odd {
     background-color: red;
 }
-
+*/
 :host.boxshadow {
     box-shadow: 12px 5px 6px rgb(76, 0, 255);
     background-color: green;
@@ -56,6 +59,17 @@ h2 {
 .field {
     display: inline-block;
     width: 80px;
+    background-color: red;
     font-weight: bold;
 }
 
+.sub {
+    display: inline-block;
+    width: 300px;
+    background-color: red;
+    font-weight: bold;
+}
+
+.sub > mark {
+    background-color: red;
+}
