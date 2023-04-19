@@ -32,9 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      delay: 2000,
-    }),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     BrowserAnimationsModule
   ],
   providers: [],
