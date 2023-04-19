@@ -1,25 +1,46 @@
-<ng-container *ngIf="newPart.id; else addPartHeader">
+<div class="edit-form">
+  <ng-container *ngIf="newPart.id; else addPartHeader">
     <h2>Update drone part</h2>
-</ng-container>
-<ng-template #addPartHeader>
+  </ng-container>
+  <ng-template #addPartHeader>
     <h2>Add a drone part</h2>
-</ng-template>
+  </ng-template>
 
-<ng-container *ngIf="newPart.id">
-    <label>ID: <input [(ngModel)]="newPart.id" disabled></label><br>
-</ng-container>
-<label>Name: <input [(ngModel)]="newPart.name"></label><br>
-<label>Description: <input [(ngModel)]="newPart.description"></label><br>
-<label>Image URL: <input [(ngModel)]="newPart.imgSrc"></label><br>
-<label>Type: <input [(ngModel)]="newPart.type"></label><br>
-<label>Tags: <input [(ngModel)]="tags"></label><br>
+  <ng-container *ngIf="newPart.id">
+    <mat-form-field class="edit-form-field">
+      <mat-label>ID:</mat-label>
+      <input matInput [(ngModel)]="newPart.id" disabled>
+    </mat-form-field>
+  </ng-container>
+  <mat-form-field class="edit-form-field">
+    <mat-label>Name:</mat-label>
+    <input matInput [(ngModel)]="newPart.name">
+  </mat-form-field>
+  <mat-form-field class="edit-form-field">
+    <mat-label>Description:</mat-label>
+    <input matInput [(ngModel)]="newPart.description">
+  </mat-form-field>
+  <mat-form-field class="edit-form-field">
+    <mat-label>Image URL:</mat-label>
+    <input matInput [(ngModel)]="newPart.imgSrc">
+  </mat-form-field>
+  <mat-form-field class="edit-form-field">
+    <mat-label>Type:</mat-label>
+    <input matInput [(ngModel)]="newPart.type">
+  </mat-form-field>
+  <mat-form-field class="edit-form-field">
+    <mat-label>Tags:</mat-label>
+    <input matInput [(ngModel)]="tags">
+  </mat-form-field>
+  <ng-container *ngIf="newPart.id; else addPartButton">
+    <button mat-raised-button color="accent" (click)="updatePartInServer()">Update Part</button>
+  </ng-container>
+  <ng-template #addPartButton>
+    <button mat-raised-button color="accent" (click)="addPartToServer()">Add Part</button>
+    <br>
+  </ng-template>
 
-<ng-container *ngIf="newPart.id; else addPartButton">
-    <button (click)="updatePartInServer()">Update Part</button>
-</ng-container>
-<ng-template #addPartButton>
-    <button (click)="addPartToServer()">Add Part</button><br>
-</ng-template>
+</div>
 
 <div *ngIf="added">Part was added successfully!</div>
 <div *ngIf="updated">Part was updated successfully!</div>

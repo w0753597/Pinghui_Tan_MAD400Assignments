@@ -1,0 +1,21 @@
+
+.edit-form {
+    min-width: 150px;
+    max-width: 400px;
+    width: 100%;
+  margin-left: 20px;
+}
+
+.edit-form > h2 {
+  text-align: center;
+}
+
+.edit-form > button {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.edit-form-field {
+  min-width: 20px;
+    width: 100%;
+}

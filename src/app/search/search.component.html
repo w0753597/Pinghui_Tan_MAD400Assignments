@@ -1,6 +1,9 @@
 <div>
-    Enter a part id: <input type='number' value='2' id="part_id_input" /> 
-    <button type="button" (click)="showPart('part_id_input')">submit</button>
+  <mat-form-field>
+    <mat-label>Enter a part id:</mat-label>
+    <input matInput type='number' value='2' id="part_id_input" />
+  </mat-form-field>
+  <button mat-raised-button color="accent" type="button" (click)="showPart('part_id_input')">submit</button>
 </div>
 
 <app-content-list-item *ngIf="part?.id == -1; else errorId" class="boxshadow" [content]="part"></app-content-list-item>
