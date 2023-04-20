@@ -1,1 +1,8 @@
-<app-content-list-item *ngFor="let item of contentList; let idx = index; even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item" [index]="idx"></app-content-list-item>
+<div style="display: flex; flex-direction: column">
+  <app-content-list-item
+    style="align-self: center"
+    *ngFor="let item of contentList; let idx = index; even as even; odd as odd"
+    [ngClass]="{odd: odd, even: even}"
+    [content]="item" [index]="idx">
+  </app-content-list-item>
+</div>

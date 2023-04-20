@@ -2,39 +2,46 @@
 
   <div class="div0">
 
-    <img *ngIf="dronePart?.imgSrc" src="assets/imgs/{{dronePart?.imgSrc}}">
+    <h3 style="align-self: center">{{dronePart?.name}}</h3>
 
-    <div style="flex-grow: 1; display: flex; flex-direction: column; padding: 10px">
+    <div class="div1">
 
-      <h3 style="align-self: center">{{dronePart?.name}}</h3>
-      <p>
-        {{dronePart?.description}}
-      </p>
+      <img *ngIf="dronePart?.imgSrc" src="assets/imgs/{{dronePart?.imgSrc}}">
 
-      <div>
-        <span>ID</span>
-        {{dronePart?.id}}</div>
-      <div>
-        <span>TYPE</span>
-        {{dronePart?.type}}
+      <div class="div2">
+
+        <p>
+          {{dronePart?.description}}
+        </p>
+
+        <div>
+          <span>ID</span>
+          {{dronePart?.id}}</div>
+        <div>
+          <span>TYPE</span>
+          {{dronePart?.type}}
+        </div>
+        <div *ngIf="dronePart?.tags">
+          <span>TAGS</span>
+          <ng-container *ngFor="let tag of dronePart?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</ng-container>
+        </div>
+
       </div>
-      <div *ngIf="dronePart?.tags">
-        <span>TAGS</span>
-        <ng-container *ngFor="let tag of dronePart?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</ng-container>
-      </div>
-      &nbsp;
-      <div class="btn-row">
-        <a *ngIf="dronePart?.id != 1" routerLink="/content/{{(dronePart?.id ?? 1) - 1}}">
-          <button mat-raised-button color="accent">Previous</button>
-        </a>
-        <a routerLink="/editContent/{{dronePart?.id}}">
-          <button mat-raised-button color="accent">Edit Part</button>
-        </a>
-        <button mat-stroked-button (click)="editByDialog(dronePart?.id)">Edit Part by Dialog</button>
-        <a routerLink="/content/{{(dronePart?.id ?? 1) + 1}}">
-          <button mat-raised-button color="accent">Next</button>
-        </a>
-      </div>
+
     </div>
+
+    <div class="btn-row">
+      <a *ngIf="dronePart?.id != 1" routerLink="/content/{{(dronePart?.id ?? 1) - 1}}">
+        <button mat-raised-button color="accent">Previous</button>
+      </a>
+      <a routerLink="/editContent/{{dronePart?.id}}">
+        <button mat-raised-button color="accent">Edit Part</button>
+      </a>
+      <button mat-stroked-button (click)="editByDialog(dronePart?.id)">Edit Part by Dialog</button>
+      <a routerLink="/content/{{(dronePart?.id ?? 1) + 1}}">
+        <button mat-raised-button color="accent">Next</button>
+      </a>
+    </div>
+
   </div>
 </mat-card>

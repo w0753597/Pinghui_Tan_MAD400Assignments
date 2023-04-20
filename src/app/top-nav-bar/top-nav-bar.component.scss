@@ -1,4 +1,10 @@
-:host {
-    display: block;
-    background-color: bisque;
+@use '@angular/material' as mat;
+
+@import "../../styles.scss";
+
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
 }

@@ -1,52 +1,52 @@
-<div class="edit-form">
-  <ng-container *ngIf="newPart.id; else addPartHeader">
-    <h2>Update drone part</h2>
-  </ng-container>
-  <ng-template #addPartHeader>
-    <h2>Add a drone part</h2>
-  </ng-template>
-
-  <ng-container *ngIf="newPart.id">
-    <mat-form-field class="edit-form-field">
-      <mat-label>ID:</mat-label>
-      <input matInput [(ngModel)]="newPart.id" disabled>
-    </mat-form-field>
-  </ng-container>
-  <mat-form-field class="edit-form-field">
-    <mat-label>Name:</mat-label>
-    <input matInput [(ngModel)]="newPart.name">
-  </mat-form-field>
-  <mat-form-field class="edit-form-field">
-    <mat-label>Description:</mat-label>
-    <input matInput [(ngModel)]="newPart.description">
-  </mat-form-field>
-  <mat-form-field class="edit-form-field">
-    <mat-label>Image URL:</mat-label>
-    <input matInput [(ngModel)]="newPart.imgSrc">
-  </mat-form-field>
-  <mat-form-field class="edit-form-field">
-    <mat-label>Type:</mat-label>
-    <input matInput [(ngModel)]="newPart.type">
-  </mat-form-field>
-  <mat-form-field class="edit-form-field">
-    <mat-label>Tags:</mat-label>
-    <input matInput [(ngModel)]="tags">
-  </mat-form-field>
-  <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="40px">
-    <ng-container *ngIf="isDialog">
-      <button mat-raised-button color="accent" (click)="closeDialog()">Cancel</button>
+<div style="display: flex; justify-content: center">
+  <div class="edit-form">
+    <ng-container *ngIf="newPart.id; else addPartHeader">
+      <h2>Update drone part</h2>
     </ng-container>
-  <ng-container *ngIf="newPart.id; else addPartButton">
-    <button mat-raised-button color="accent" (click)="updatePartInServer()">Update Part</button>
-  </ng-container>
-  <ng-template #addPartButton>
-    <button mat-raised-button color="accent" (click)="addPartToServer()">Add Part</button>
-    <br>
-  </ng-template>
+    <ng-template #addPartHeader>
+      <h2>Add a drone part</h2>
+    </ng-template>
+
+    <ng-container *ngIf="newPart.id">
+      <mat-form-field class="edit-form-field">
+        <mat-label>ID:</mat-label>
+        <input matInput [(ngModel)]="newPart.id" disabled>
+      </mat-form-field>
+    </ng-container>
+    <mat-form-field class="edit-form-field">
+      <mat-label>Name:</mat-label>
+      <input matInput [(ngModel)]="newPart.name">
+    </mat-form-field>
+    <mat-form-field class="edit-form-field">
+      <mat-label>Description:</mat-label>
+      <input matInput [(ngModel)]="newPart.description">
+    </mat-form-field>
+    <mat-form-field class="edit-form-field">
+      <mat-label>Image URL:</mat-label>
+      <input matInput [(ngModel)]="newPart.imgSrc">
+    </mat-form-field>
+    <mat-form-field class="edit-form-field">
+      <mat-label>Type:</mat-label>
+      <input matInput [(ngModel)]="newPart.type">
+    </mat-form-field>
+    <mat-form-field class="edit-form-field">
+      <mat-label>Tags:</mat-label>
+      <input matInput [(ngModel)]="tags">
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="40px">
+      <ng-container *ngIf="isDialog">
+        <button mat-raised-button color="accent" (click)="closeDialog()">Cancel</button>
+      </ng-container>
+      <ng-container *ngIf="newPart.id; else addPartButton">
+        <button mat-raised-button color="accent" (click)="updatePartInServer()">Update Part</button>
+      </ng-container>
+      <ng-template #addPartButton>
+        <button mat-raised-button color="accent" (click)="addPartToServer()">Add Part</button>
+        <br>
+      </ng-template>
+    </div>
+
+    <div *ngIf="added" style="margin-top: 20px">Part was added successfully!</div>
+    <div *ngIf="updated" style="margin-top: 20px">Part was updated successfully!</div>
   </div>
-
-  <div *ngIf="added" style="margin-top: 20px">Part was added successfully!</div>
-  <div *ngIf="updated" style="margin-top: 20px">Part was updated successfully!</div>
 </div>
-
-

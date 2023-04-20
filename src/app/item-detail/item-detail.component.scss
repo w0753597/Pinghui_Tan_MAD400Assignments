@@ -16,7 +16,20 @@ mat-card {
 
 .div0 {
   display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.div1 {
+  display: flex;
   flex-direction: row;
+}
+
+.div2 {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 30px;
 }
 
 img {
