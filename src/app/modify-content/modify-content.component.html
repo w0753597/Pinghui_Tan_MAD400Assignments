@@ -32,6 +32,10 @@
     <mat-label>Tags:</mat-label>
     <input matInput [(ngModel)]="tags">
   </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="40px">
+    <ng-container *ngIf="isDialog">
+      <button mat-raised-button color="accent" (click)="closeDialog()">Cancel</button>
+    </ng-container>
   <ng-container *ngIf="newPart.id; else addPartButton">
     <button mat-raised-button color="accent" (click)="updatePartInServer()">Update Part</button>
   </ng-container>
@@ -39,8 +43,10 @@
     <button mat-raised-button color="accent" (click)="addPartToServer()">Add Part</button>
     <br>
   </ng-template>
+  </div>
 
+  <div *ngIf="added" style="margin-top: 20px">Part was added successfully!</div>
+  <div *ngIf="updated" style="margin-top: 20px">Part was updated successfully!</div>
 </div>
 
-<div *ngIf="added">Part was added successfully!</div>
-<div *ngIf="updated">Part was updated successfully!</div>
+
