@@ -8,9 +8,15 @@ import { IContent } from '../models/icontent';
 })
 export class ContentListItemComponent {
   @Input() content?: IContent;
+  @Input() index?: number;
 
   onClickImg() {
     console.log("id: " + this.content?.id);
     console.log("description: " + this.content?.description);
+  }
+
+  oddOrEven(): string {
+    return this.index == null ? "" :
+      this.index % 2 == 0 ? "even" : "odd";
   }
 }

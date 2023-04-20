@@ -1,1 +1,1 @@
-<app-content-list-item *ngFor="let item of contentList; even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item"></app-content-list-item>
+<app-content-list-item *ngFor="let item of contentList; let idx = index; even as even; odd as odd" [ngClass]="{odd: odd, even: even}" [content]="item" [index]="idx"></app-content-list-item>

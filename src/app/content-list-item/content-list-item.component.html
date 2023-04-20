@@ -1,15 +1,53 @@
-<a routerLink="/content/{{content?.id}}"><h2>{{content?.name}}</h2></a>
-<div class="media">
-    <div class="img" *ngIf="content?.imgSrc">
-        <img (click)="onClickImg()" src="assets/imgs/{{content?.imgSrc}}" width="200px" />
+<!--<a routerLink="/content/{{content?.id}}"><h2>{{content?.name}}</h2></a>-->
+<!--<div class="media">-->
+<!--    <div class="img" *ngIf="content?.imgSrc">-->
+<!--        <img (click)="onClickImg()" src="assets/imgs/{{content?.imgSrc}}" width="200px" />-->
+<!--    </div>-->
+<!--    <div class="content">-->
+<!--        &lt;!&ndash;<p *ngIf="content?.description">{{content?.description}}</p>&ndash;&gt;-->
+<!--        <p>-->
+<!--            <span class="field">Id</span>{{content?.id}}<br/>-->
+<!--            <span class="field">Type</span>{{content?.type}}<br/>-->
+<!--            <span class="field" *ngIf="content?.tags">Tags</span><span class="tag" *ngFor="let tag of content?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</span><br *ngIf="content?.tags"/>-->
+<!--            &lt;!&ndash;<span class="field">Author</span>{{content?.author}}&ndash;&gt;-->
+<!--        </p>-->
+<!--    </div>-->
+<!--</div>-->
+
+<mat-card [ngClass]="oddOrEven()">
+
+  <mat-card-title style="text-align: center"><h3>{{content?.name}}</h3></mat-card-title>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content style="padding: 20px 30px">
+    <div class="content-div" style="width: 75%">
+      <mat-label class="content-label">ID</mat-label>
+      {{content?.id}}
+      <mat-divider></mat-divider>
+      <mat-label class="content-label">TYPE</mat-label>
+      {{content?.type}}
+      <mat-divider></mat-divider>
+      <mat-label *ngIf="content?.tags" class="content-label">TAGS</mat-label>
+      <ng-container *ngFor="let tag of content?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</ng-container>
+      <mat-divider *ngIf="content?.tags"></mat-divider>
+      &nbsp;
     </div>
-    <div class="content">
-        <!--<p *ngIf="content?.description">{{content?.description}}</p>-->
-        <p>
-            <span class="field">Id</span>{{content?.id}}<br/>
-            <span class="field">Type</span>{{content?.type}}<br/>
-            <span class="field" *ngIf="content?.tags">Tags</span><span class="tag" *ngFor="let tag of content?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</span><br *ngIf="content?.tags"/>
-            <!--<span class="field">Author</span>{{content?.author}}-->
-        </p>
+
+    <div class="content-div" style="width: 25%">
+      <img mat-card-md-image style="display: block; margin-left: auto"
+           *ngIf="content?.imgSrc"
+           (click)="onClickImg()" src="assets/imgs/{{content?.imgSrc}}">
     </div>
-</div>
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions>
+    <div style="width: 100%; text-align: center">
+      <a routerLink="/content/{{content?.id}}">
+        <button mat-raised-button color="accent">Show Details</button>
+      </a>
+    </div>
+  </mat-card-actions>
+</mat-card>
