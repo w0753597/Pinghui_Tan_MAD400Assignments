@@ -30,6 +30,7 @@
         <a routerLink="/editContent/{{dronePart?.id}}">
           <button mat-raised-button color="accent">Edit Part</button>
         </a>
+        <button mat-stroked-button (click)="editByDialog(dronePart?.id)">Edit Part by Dialog</button>
         <a routerLink="/content/{{(dronePart?.id ?? 1) + 1}}">
           <button mat-raised-button color="accent">Next</button>
         </a>

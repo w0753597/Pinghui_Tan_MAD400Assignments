@@ -13,7 +13,7 @@ constructor(public dialog: MatDialog) {
 }
   openDialog(id?: number): void {
 
-    const dialogRef = this.dialog.open(ModifyContentComponent, { height: '540px', width: '440px' });
+    const dialogRef = this.dialog.open(ModifyContentComponent, { height: '580px', width: '440px' });
     dialogRef.componentInstance.isDialog = true;
     dialogRef.componentInstance.id = id;
 

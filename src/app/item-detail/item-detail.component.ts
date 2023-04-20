@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IContent } from '../models/icontent';
 import { DronePartService } from '../services/drone-part.service';
+import {TopNavBarComponent} from "../top-nav-bar/top-nav-bar.component";
 
 @Component({
   selector: 'app-item-detail',
@@ -14,7 +15,8 @@ export class ItemDetailComponent implements OnInit {
   constructor(
     private router: Router,
     private dronePartService: DronePartService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private topNavBar: TopNavBarComponent) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -31,6 +33,10 @@ export class ItemDetailComponent implements OnInit {
       });
 
     });
+  }
+
+  editByDialog(id?: number): void {
+    this.topNavBar.openDialog(id);
   }
 
 }

@@ -51,7 +51,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatDialogModule,
     FlexLayoutModule,
   ],
-  providers: [],
+  providers: [TopNavBarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
