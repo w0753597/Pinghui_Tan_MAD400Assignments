@@ -1,18 +1,39 @@
-<h2>{{dronePart?.name}}</h2>
-<div class="media">
-    <div class="img" *ngIf="dronePart?.imgSrc">
-        <img src="assets/imgs/{{dronePart?.imgSrc}}" width="200px" />
+<mat-card>
+
+  <div class="div0">
+
+    <img *ngIf="dronePart?.imgSrc" src="assets/imgs/{{dronePart?.imgSrc}}">
+
+    <div style="flex-grow: 1; display: flex; flex-direction: column; padding: 10px">
+
+      <h3 style="align-self: center">{{dronePart?.name}}</h3>
+      <p>
+        {{dronePart?.description}}
+      </p>
+
+      <div>
+        <span>ID</span>
+        {{dronePart?.id}}</div>
+      <div>
+        <span>TYPE</span>
+        {{dronePart?.type}}
+      </div>
+      <div *ngIf="dronePart?.tags">
+        <span>TAGS</span>
+        <ng-container *ngFor="let tag of dronePart?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</ng-container>
+      </div>
+      &nbsp;
+      <div class="btn-row">
+        <a *ngIf="dronePart?.id != 1" routerLink="/content/{{(dronePart?.id ?? 1) - 1}}">
+          <button mat-raised-button color="accent">Previous</button>
+        </a>
+        <a routerLink="/editContent/{{dronePart?.id}}">
+          <button mat-raised-button color="accent">Edit Part</button>
+        </a>
+        <a routerLink="/content/{{(dronePart?.id ?? 1) + 1}}">
+          <button mat-raised-button color="accent">Next</button>
+        </a>
+      </div>
     </div>
-    <div class="content">
-        <p *ngIf="dronePart?.description">{{dronePart?.description}}</p>
-        <p>
-            <!--<span class="field">Id</span>{{dronePart?.id}}<br/>-->
-            <span class="field">Type</span>{{dronePart?.type}}<br/>
-            <span class="field" *ngIf="dronePart?.tags">Tags</span><span class="tag" *ngFor="let tag of dronePart?.tags">{{tag}}&nbsp;&nbsp;&nbsp;&nbsp;</span><br *ngIf="dronePart?.tags"/>
-            <span class="field">Author</span>{{dronePart?.author}}
-        </p>
-    </div>
-</div>
-<a routerLink="/editContent/{{dronePart?.id}}">Edit Part</a><br>
-<a routerLink="/content">Go back to part list</a><br>
-<a *ngIf="dronePart?.id != 1" routerLink="/content/{{(dronePart?.id ?? 1) - 1}}">Previous part</a>
+  </div>
+</mat-card>

@@ -1,63 +1,38 @@
-/*
+@use '@angular/material' as mat;
+
+@import "../../styles.scss";
+
 :host {
-    border: 2px solid rgb(192, 149, 149);
-    display: block;
-    width: 700px;
-    margin: 30px 20px;
-    padding: 0 20px
+  display: flex;
+  justify-content: center;
 }
 
-:host.even {
-    background-color: yellow;
+mat-card {
+  min-width: 500px;
+  max-width: 1200px;
+  margin: 20px;
+  background: mat.get-color-from-palette($P_Tan_DroneDIY-primary);
 }
 
-:host.odd {
-    background-color: red;
+.div0 {
+  display: flex;
+  flex-direction: row;
 }
 
-:host.boxshadow {
-    box-shadow: 12px 5px 6px rgb(76, 0, 255);
-    background-color: green;
-}
-*/
-
-.media {
-    display: grid;
-    grid-template-columns: fit-content(200px) 1fr;
-    grid-template-rows:1fr auto;
-    grid-template-areas:
-        "image content"
-        "image footer";
-    grid-gap: 20px;
-    margin-bottom: 4em;
+img {
+  align-self: center;
+  width: 200px;
+  margin: 0 10px;
 }
 
-.media-flip {
-    grid-template-columns: 1fr fit-content(250px);
-    grid-template-areas:
-        "content image"
-        "footer image";
+span {
+  display: inline-block;
+  width: 100px;
 }
 
-h2 {
-    text-align: center;
+.btn-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
 }
-
-.img {
-    grid-area: image;
-}
-
-.content {
-    grid-area: content;
-}
-
-.footer {
-    grid-area: footer;
-}
-
-.field {
-    display: inline-block;
-    width: 80px;
-    font-weight: bold;
-}
-
