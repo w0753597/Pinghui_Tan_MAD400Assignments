@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatDividerModule} from "@angular/material/divider";
     MatFormFieldModule,
     MatCardModule,
     MatDividerModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
