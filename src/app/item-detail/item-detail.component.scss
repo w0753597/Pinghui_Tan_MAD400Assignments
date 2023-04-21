@@ -19,9 +19,11 @@ mat-card {
 .div1 {
   display: flex;
   flex-direction: row;
+  min-height: 240px;;
 }
 
 .div2 {
+  align-self: center;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
