@@ -35,5 +35,12 @@ $P_Tan_DroneDIY-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  background-color: #a7ffeb;  // teal a100
+  --normal-card-color: #4db6ac;  // teal 300
+  --lighter-card-color: #80cbc4;  // teal 200
+  --darker-card-color: #26a69a;  // teal 400
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

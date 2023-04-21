@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -23,6 +23,9 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDialogModule} from "@angular/material/dialog";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { UpdateSnackBarComponent } from './update-snack-bar/update-snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     SearchComponent,
     UrlErrorComponent,
     TopNavBarComponent,
-    ModifyContentComponent
+    ModifyContentComponent,
+    UpdateSnackBarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,14 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatDividerModule,
     MatToolbarModule,
     MatDialogModule,
+    MatSnackBarModule,
     FlexLayoutModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [TopNavBarComponent],
   bootstrap: [AppComponent]
